@@ -29,6 +29,10 @@ Route::get('/dashboard', function(){
     return view('layouts.private.dashboard');
 })->name('dashboard')->middleware('auth');
 
+Route::get('/error', function(){
+    return view('layouts.error');
+})->name('error');
+
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 //halaman single post(single profile)
 route::get('profiles/{profile:slug}', [ProfileController::class, 'show']);

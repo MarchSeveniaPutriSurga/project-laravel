@@ -7,6 +7,7 @@
     <div class="text-center mb-5">
         <h1 class="display-5 fw-bolder mb-0" data-aos="fade-up" data-aos-delay="200"><span class="text-gradient d-inline">{{ $title }}</span></h1>
     </div>
+
     @if ($profiles->count())
     <div class="row gx-5 justify-content-center" data-aos="fade-up" data-aos-duration="1000">
         @foreach ($profiles as $profile)
@@ -20,7 +21,7 @@
                         @if ($profile->image)
                             <img src="{{ asset('storage/' . $profile->image) }}" class="img-fluid rounded-start" style="width: 100%;" alt="...">
                         @else
-                            <img src="https://source.unsplash.com/500x500?{{ $profile->category->name }}" class="img-fluid rounded-start" style="width: 100%;" alt="...">
+                            <img src="{{ $profile->image_url }}" class="img-fluid rounded-start" style="width: 100%;" alt="{{ $profile->category->name }}">
                         @endif
                     </div>
                     <h5 class="card-title mt-3">

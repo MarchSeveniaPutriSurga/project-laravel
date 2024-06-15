@@ -17,7 +17,6 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/public/css/sb-admin-2.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/public/css/sb-admin-2.min.css') }}" rel="stylesheet" />
 
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">

@@ -34,7 +34,7 @@ class ContactController extends Controller
             $contact->email = $request->email;
             $contact->phonenumber = $request->phonenumber;
             $contact->message = $request->message_user;
-            // $contact->save();
+            $contact->save();
     
             $this->sendEmail($request->all());
             DB::commit();

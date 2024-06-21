@@ -13,10 +13,10 @@ class contact extends Model
         return Home::all();
     }
 
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 
-    public function author()
-    {
-        return $this->belongsTo(user::class, 'user_id');
-    }
+    // public function author()
+    // {
+    //     return $this->belongsTo(user::class, 'user_id');
+    // }
 }

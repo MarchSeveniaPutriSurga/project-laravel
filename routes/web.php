@@ -2,6 +2,7 @@
 
 use App\Models\user;
 use App\Models\Category;
+use App\Models\Footer;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardHomeController;
+use App\Http\Controllers\DashboardFooterController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardProfileController;
 
@@ -24,6 +26,9 @@ use App\Http\Controllers\DashboardProfileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::fallback(function() {
+    return response()->view('error', [], 404);
+});
 
 Route::get('/dashboard', function(){
     return view('layouts.private.dashboard');
@@ -34,7 +39,6 @@ Route::get('/error', function(){
 })->name('error');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-//halaman single post(single profile)
 route::get('profiles/{profile:slug}', [ProfileController::class, 'show']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -52,7 +56,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register')
 
 route::get('/categories', function(){
     return view('layouts.public.categories', [
-        'categories' => category::all()
+        'categories' => category::all(),
+        'footers' => footer::all()
     ]);
 })->name('categories');
 
@@ -60,21 +65,23 @@ route::get('/categories/{category:slug}', function(category $category)
 {
     return view('layouts.public.profiles', [
         'title' => "Recipe By Category : $category->name",
-        'profiles' => $category->profiles->load('category', 'author')
+        'profiles' => $category->profiles->load('category', 'author'),
+        'footers' => footer::all()
     ]);
 });
 
 route::get('/authors/{author:username}', function(user $author){
     return view('layouts.public.profiles', [
         'title' => "Recipe By Author : $author->name",
-        'profiles' => $author->profiles->load('category', 'author')
+        'profiles' => $author->profiles->load('category', 'author'),
+        'footers' => footer::all()
     ]);
 });
 
-//Private Area
 Route::get('/dashboard/profiles/checkSlug', [DashboardProfileController::class, 'checkSlug'])->middleware('auth');
 Route::get('/dashboard/homes/checkSlug', [DashboardHomeController::class, 'checkSlug'])->middleware('auth');
 
 Route::resource('/dashboard/profiles', DashboardProfileController::class)->middleware('auth');
 Route::resource('/dashboard/homes', DashboardHomeController::class)->middleware('auth');
 Route::resource('/dashboard/contacts', DashboardContactController::class)->middleware('auth');
+Route::resource('/dashboard/footer', DashboardFooterController::class)->middleware('auth');

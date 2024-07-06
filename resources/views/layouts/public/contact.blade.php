@@ -25,34 +25,17 @@
                     <div class="col-lg-8 col-xl-6">
                         <form method="POST" action="{{ route('contactsend') }}">
                             @csrf
-                            {{-- <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control pt-0 pb-0" id="name" type="text" value="{{ $contacts->name }}" readonly/> 
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control pt-0 pb-0" id="email" type="email" value="{{ $contacts->email }}" readonly/>
-                                
-                                <!-- <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div> -->
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control pt-0 pb-0" id="phone" type="tel" value="{{ $contacts->phonenumber }}" readonly />
-                            </div> --}}
-
                             <div class="form-floating mb-3">
                                 <input name="name" class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                 <label for="name">Full name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
-                            <!-- Email address input-->
                             <div class="form-floating mb-3">
                                 <input name="email" class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
-                            <!-- Phone number input-->
                             <div class="form-floating mb-3">
                                 <input name="phonenumber" class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
                                 <label for="phone">Phone number</label>

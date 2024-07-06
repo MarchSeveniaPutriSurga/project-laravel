@@ -11,9 +11,6 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view ('layouts.private.profile', [
@@ -21,9 +18,6 @@ class DashboardProfileController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('layouts.profiles.create', [
@@ -31,9 +25,6 @@ class DashboardProfileController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -56,17 +47,11 @@ class DashboardProfileController extends Controller
         return redirect('/dashboard/profiles')->with('success', 'New Recipe has been added!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(profile $profile)
     {
         return view('layouts.profiles.show', ['profile' => $profile]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(profile $profile)
     {
         return view('layouts.profiles.edit', [
@@ -75,9 +60,6 @@ class DashboardProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, profile $profile)
     {
         $rules = [
@@ -109,9 +91,6 @@ class DashboardProfileController extends Controller
         return redirect('/dashboard/profiles')->with('success', 'Recipe has been updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(profile $profile)
     {
         if($profile->image){

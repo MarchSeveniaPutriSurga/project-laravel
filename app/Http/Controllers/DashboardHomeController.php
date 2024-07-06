@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class DashboardHomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view ('layouts.private.home', [
@@ -20,33 +17,21 @@ class DashboardHomeController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         // 
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(home $home)
     {
         return view('layouts.homes.show', ['home' => $home]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(home $home)
     {
         return view('layouts.homes.edit', [
@@ -55,9 +40,6 @@ class DashboardHomeController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, home $home)
     {
         $rules = [
@@ -86,9 +68,6 @@ class DashboardHomeController extends Controller
         return redirect('/dashboard/homes')->with('success', 'About has been updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(home $home)
     {
         if($home->image){

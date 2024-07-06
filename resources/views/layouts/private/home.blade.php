@@ -16,7 +16,6 @@
             <h6 class="m-0 font-weight-bold text-primary">Home Setting</h6>
         </div>
         <div class="card-body">
-            {{-- <a href="/dashboard/profiles/create" class="btn btn-primary mb-3">Create New Protofolio</a> --}}
             <div class="table-responsive" >
                 <table class="table table-bordered">
                     <thead>

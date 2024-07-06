@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex flex-column justify-content-between align-items-start pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2 welcome-message">My Profiles</h1>
+    <h1 class="h2 welcome-message">My Recipe</h1>
 </div>
 
 @if(session()->has('success'))
@@ -13,7 +13,7 @@
 
     <div class="card shadow mb-4" style="margin: 10px;">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Recipe Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Recipe Setting</h6>
         </div>
         <div class="card-body">
             <a href="/dashboard/profiles/create" class="btn btn-primary mb-3">Create New Recipe</a>

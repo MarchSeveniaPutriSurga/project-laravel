@@ -1,8 +1,3 @@
-@extends('layouts.public.app')
-
-@section('content')
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,9 +8,16 @@
         <meta name="author" content="" />
         <title>Sign Up - SB Admin</title>
         <link href="css/styles2.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+        <link href="{{ asset('assets/public/css/styles.css') }}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    <body>
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -82,4 +84,3 @@
         <script src="js/scripts2.js"></script>
     </body>
 </html>
-@endsection

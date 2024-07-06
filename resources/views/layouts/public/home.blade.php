@@ -2,7 +2,6 @@
 
 @section('content')
 
-<!-- Header-->
 <header class="py-5">
                 <div class="container px-5 pb-5">
                     <div class="row gx-5 align-items-center">
@@ -24,8 +23,6 @@
                             <!-- Header profile picture-->
                             <div class="d-flex justify-content-center mt-5 mt-xxl-0">
                                 <div class="profile bg-gradient-primary-to-secondary">
-                                    <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                                    <!-- Watch a tutorial on how to do this on YouTube (link)-->
                                     @if ($home->image)
                                         <img src="{{ asset('storage/' . $home->image) }}" class="profile-img" alt="...">
                                     @else
@@ -154,8 +151,8 @@
                 <div class="container px-5">
                     <div class="row gx-5 justify-content-center">
                         <div class="col-xxl-8">
-                            <div class="text-center my-5" data-aos="fade-up" data-aos-delay="300">
-                                <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
+                            <div class="text-center my-5" data-aos="fade-up" data-aos-duration="1000">
+                                <h1 class="display-5 fw-bolder"><span class="text-gradient d-inline">About</span></h1>
                                 @foreach ($homes as $home)
                                     <p class="lead fw-light mb-4">{!! $home->about !!}</p>
                                 @endforeach

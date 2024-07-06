@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Models\Category;
+use App\Models\Footer;
 use Illuminate\Support\Facades\Http;
 
 
 class ProfileController extends Controller
 {
     public function index(){
+        $footers = Footer::all();
         $profiles = Profile::all();
         $categories = Category::all();
         foreach ($profiles as $profile) {
@@ -18,17 +20,19 @@ class ProfileController extends Controller
                 $profile->image_url = $this->getPexelsImage($profile->category->name);
             }
         }
-        return view('layouts.public.profiles', compact('profiles', 'categories'),[
+        return view('layouts.public.profiles', compact('profiles', 'categories', 'footers'),[
             "title" => "All Recipe",
-            // "active" => 'profiles',
             "profiles" => profile::latest()->get()
         ]);
     }
 
     public function show(Profile $profile)
     {
+        $footers = Footer::all();
+        
         return view('layouts.public.profile', [
-            "profile" => $profile
+            "profile" => $profile,
+            "footers" => $footers
         ]);
     }
 

@@ -88,6 +88,5 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
-
 </script>
 @endsection

@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Footer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
     public function index(){
+        $footers = Footer::all();
         $contacts = contact::first();
-        return view('layouts.public.contact', compact('contacts'));
+        return view('layouts.public.contact', compact('contacts','footers'));
     }
 
     public function store(Request $request)
@@ -26,7 +28,7 @@ class ContactController extends Controller
             'phonenumber' => 'required',
             'message_user' => 'required',
         ]);
-// dd($request->all());
+
         try {
             DB::beginTransaction();
             $contact = new Contact();
@@ -47,7 +49,6 @@ class ContactController extends Controller
     
     private function sendEmail($data)
     {
-        // dd($data['email']);
         Mail::send('email.contact', $data, function($message) use ($data) {
             $message->to($data['email'], $data['name'])
                     ->subject('Email dari Buku Tamu');

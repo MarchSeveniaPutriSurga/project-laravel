@@ -6,7 +6,7 @@
         <div class="col-lg-8">
             <h2 class="mb-3 text-dark">{{ $profile->title }}</h2>
             
-            <a href="/dashboard/profiles" class="btn btn-success"><i class="fa-solid fa-arrow-left"></i> Back To All My Profile</a>
+            <a href="/dashboard/profiles" class="btn btn-success"><i class="fa-solid fa-arrow-left"></i> Back To All My Recipe</a>
             <a href="/dashboard/profiles/{{ $profile->slug }}/edit" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
             <form action="/dashboard/profiles/{{ $profile->slug }}" method="POST" class="d-inline">
                 @method('delete')

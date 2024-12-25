@@ -11,8 +11,8 @@
                                 <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Food &middot; Drink &middot; Snack</div></div>
                                 @foreach ($homes as $home)
                                 <h1 class="display-5 fw-bolder" data-aos="fade-up" data-aos-duration="1000"><span class="text-gradient d-inline">{{ $home->title }}</span></h1>
-                                @endforeach
                                 <div class="fs-3 fw-light text-muted mb-5" data-aos="fade-up" data-aos-delay="200">{{ $home->tagline }}</div>
+                                @endforeach
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                                     <a class="btn btn-secondary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="{{ route('profile') }}">Recipe</a>
                                     <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="{{ route('categories') }}">Categories</a>
@@ -23,11 +23,13 @@
                             <!-- Header profile picture-->
                             <div class="d-flex justify-content-center mt-5 mt-xxl-0">
                                 <div class="profile bg-gradient-primary-to-secondary">
+                                    @foreach ($homes as $home)
                                     @if ($home->image)
                                         <img src="{{ asset('storage/' . $home->image) }}" class="profile-img" alt="...">
                                     @else
                                         <img src="{{ asset('assets/public/assets/wanita.png') }}" class="profile-img" alt="...">
                                     @endif
+                                    @endforeach
                                     <div class="dots-1">
                                         <!-- SVG Dots-->
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">

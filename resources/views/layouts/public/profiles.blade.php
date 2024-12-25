@@ -19,9 +19,9 @@
                             <a href="/categories/{{ $profile->category->slug }}" class=" text-white text-decoration-none">{{ $profile->category->name }}</a>
                         </div>
                         @if ($profile->image)
-                            <img src="{{ asset('storage/' . $profile->image) }}" class="img-fluid rounded-start" style="width: 100%;" alt="...">
+                            <img src="{{ asset('storage/' . $profile->image) }}" class="img-fluid rounded-start card-img-fixed" alt="...">
                         @else
-                            <img src="{{ $profile->image_url }}" class="img-fluid rounded-start" style="width: 100%;" alt="{{ $profile->category->name }}">
+                            <img src="{{ $profile->image_url }}" class="img-fluid rounded-start card-img-fixed" alt="{{ $profile->category->name }}">
                         @endif
                     </div>
                     <h5 class="card-title mt-3">
@@ -41,11 +41,13 @@
     <p class="text-center fs-4">No Post Found.</p>
     @endif
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-            <script>
-                AOS.init();
-                document.addEventListener('DOMContentLoaded', function() {
-                    AOS.init();
-                });
-            </script>
+<script>
+    AOS.init();
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init();
+    });
+</script>
+
 @endsection

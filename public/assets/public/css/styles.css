@@ -11732,4 +11732,11 @@ html {
     width: 1.5vw;
     left: -2vw;
   }
+  .card-img-fixed {
+    width: 100%;
+    height: 300px; /* Atur tinggi tetap */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+    object-position: center; /* Pusatkan gambar */
+}
+
 }
